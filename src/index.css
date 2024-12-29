@@ -11,26 +11,128 @@ html {
 }
 
 #countdown {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  gap: 2rem;
+  align-items: center;
+  background: linear-gradient(45deg, #0a2342, #2d4059, #0a2342);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
 .countdown-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-image {
+  max-width: 350px;
+  border-radius: 20px;
+  margin-bottom: 2.5rem;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+.time-segment {
+  display: inline-flex;
   flex-direction: column;
-  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 15px;
+  margin: 0.7rem;
+  min-width: 120px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time-segment:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.time-segment div:first-child {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.time-segment div:last-child {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.5rem;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* التحريكات */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 @media (max-width: 768px) {
+  .time-segment {
+    min-width: 90px;
+    padding: 0.8rem;
+    margin: 0.4rem;
+  }
+
+  .time-segment div:first-child {
+    font-size: 1.8rem;
+  }
+
+  .time-segment div:last-child {
+    font-size: 0.9rem;
+  }
+
+  .main-image {
+    max-width: 280px;
+  }
+
   .countdown-container {
-    margin: 0 1rem;
+    padding: 2rem;
   }
 }
 

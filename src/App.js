@@ -28,7 +28,26 @@ const CountdownTimer = () => {
     const minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
 
-    return `${totalDays} أيام ${hours} ساعات ${minutes} دقائق ${seconds} ثواني`;
+    return (
+      <>
+        <div className="time-segment">
+          <div>{totalDays}</div>
+          <div>أيام</div>
+        </div>
+        <div className="time-segment">
+          <div>{hours}</div>
+          <div>ساعات</div>
+        </div>
+        <div className="time-segment">
+          <div>{minutes}</div>
+          <div>دقائق</div>
+        </div>
+        <div className="time-segment">
+          <div>{seconds}</div>
+          <div>ثواني</div>
+        </div>
+      </>
+    );
   }
 
   return (
