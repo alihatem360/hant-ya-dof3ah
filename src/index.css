@@ -3,6 +3,7 @@
 * {
   font-family: "Noto Kufi Arabic", sans-serif;
   /* border: 1px solid red; */
+  transition: all 0.3s ease-in-out;
 }
 
 html {
@@ -50,6 +51,11 @@ html {
 .countdown-container img {
   width: 100%;
   border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.countdown-container img:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -63,6 +69,11 @@ html {
   font-weight: 700;
   text-align: center;
   width: 100%;
+  transition: color 0.3s ease-in-out;
+}
+
+.countdown-container h2:hover {
+  color: #ffcc00;
 }
 
 @media (max-width: 768px) {
